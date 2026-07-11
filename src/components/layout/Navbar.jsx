@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import SchoolLogo from "../../assets/logo/school_logo.png"
+import SchoolLogo from "../../../public/school_logo.png"
 import {
     FaPlus,
     FaBars,
