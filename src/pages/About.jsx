@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import breadCrumbImg from "../assets/sliderImgs/1.jpeg"
+import CTASection from "../components/CTASection/CTASection";
 import {
     FaChevronRight,
     FaGraduationCap,
@@ -9,9 +10,8 @@ import {
     FaAward,
     FaGlobeAmericas,
     FaBookOpen,
-    FaArrowRight,
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+
 
 /* ---------------- Scroll-reveal hook ---------------- */
 
@@ -151,14 +151,6 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-
-                        {/* <a
-                            href="#mission-vision"
-                            className="inline-flex items-center gap-3 bg-[#890C25] text-white font-medium text-[14.5px] px-7 py-3.5 rounded-md hover:bg-[#6e0a1e] transition-colors duration-300 group"
-                        >
-                            Our Mission & Vision
-                            <FaArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
-                        </a> */}
                     </div>
                 </div>
             </section>
@@ -232,12 +224,27 @@ function MissionVisionSection() {
 }
 
 /* ---------------- Core values ---------------- */
-
 const VALUES = [
-    { Icon: FaBookOpen, title: "Academic Rigour", body: "Standards that hold, from Class I orientation through doctoral research." },
-    { Icon: FaUsers, title: "Inclusive Community", body: "A campus where every background is represented and genuinely welcomed." },
-    { Icon: FaGlobeAmericas, title: "Global Outlook", body: "Partnerships and exchange programs across 40+ countries." },
-    { Icon: FaAward, title: "Excellence, Proven", body: "Consistently ranked in the nation's top academic institutions." },
+    {
+        Icon: FaBookOpen,
+        title: "Quality Education",
+        body: "Delivering a comprehensive CBSE curriculum that builds strong academic foundations and lifelong learning skills."
+    },
+    {
+        Icon: FaUsers,
+        title: "Student-Centric Learning",
+        body: "Every child receives individual attention in a caring environment that encourages creativity, confidence, and curiosity."
+    },
+    {
+        Icon: FaGlobeAmericas,
+        title: "Modern Education",
+        body: "Technology-enabled classrooms, experiential learning, and innovation prepare students for future opportunities."
+    },
+    {
+        Icon: FaAward,
+        title: "Excellence & Character",
+        body: "Committed to academic success while fostering discipline, ethics, leadership, and strong moral values."
+    },
 ];
 
 function CoreValues() {
@@ -249,7 +256,7 @@ function CoreValues() {
                     {VALUES.map(({ Icon, title, body }) => (
                         <div
                             key={title}
-                            className="group text-center px-5 py-9 rounded-xl border border-black/5 hover:border-[#890C25]/20 hover:shadow-lg transition-all duration-300"
+                            className="group text-center px-5 py-9 rounded-xl border border-black/25 hover:border-[#890C25]/20 hover:shadow-lg transition-all duration-300"
                         >
                             <span className="inline-flex w-14 h-14 rounded-full bg-[#890C25]/10 text-[#890C25] items-center justify-center mb-5 group-hover:bg-[#890C25] group-hover:text-white transition-colors duration-300">
                                 <Icon size={22} />
@@ -259,43 +266,6 @@ function CoreValues() {
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
-    );
-}
-
-/* ---------------- CTA ---------------- */
-
-function CTASection() {
-    const [ref, visible] = useReveal();
-    const now = new Date();
-    const year =
-        now.getMonth() >= 3 // April = 3 (0-based)
-            ? now.getFullYear()
-            : now.getFullYear() - 1;
-
-    const session = `${year}-${String((year + 1) % 100).padStart(2, "0")}`;
-    return (
-        <section ref={ref} className="relative bg-[#890C25] px-5 sm:px-8 py-20 md:py-24 overflow-hidden">
-            <div className="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-white/5 blur-3xl" aria-hidden="true" />
-            <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-white/5 blur-3xl" aria-hidden="true" />
-            <div
-                className={`relative max-w-2xl mx-auto text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                    }`}
-            >
-                <p className="text-white/70 font-semibold text-[13.5px] tracking-wide mb-4">Join Us</p>
-                <h2 className="font-logo font-semibold text-white text-[2rem] sm:text-[2.6rem] leading-tight mb-6">
-                    Ready to be part of our story?
-                </h2>
-                <p className="text-white/75 text-[15px] mb-9 max-w-lg mx-auto">
-                    Admissions for the {session} session are open across every program.
-                </p>
-                <NavLink
-                    to="/admission"
-                    className="inline-flex items-center gap-2 bg-white text-[#890C25] font-semibold text-[14.5px] px-8 py-3.5 rounded-md hover:bg-[#F7F4EC] transition-colors duration-300"
-                >
-                    Explore Admissions <FaArrowRight size={13} />
-                </NavLink>
             </div>
         </section>
     );

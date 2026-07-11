@@ -2,15 +2,146 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import HeroSlider from "../components/slider/Slider";
 import SchoolLogo from "../assets/logo/school_logo.png"
 import { FEATURED, FEATURED_VISIBLE_COUNT, AnimatedHeading, Lightbox } from "./Gallery";
+import Testimonials from "../components/testimonial/Testimonials";
 import {
   FaGraduationCap,
   FaArrowRight,
   FaHandsHelping,
   FaUniversity,
   FaExpand,
+  FaChalkboardTeacher,
+  FaFlask,
+  FaLaptop,
+  FaBookOpen,
+  FaBuilding,
+  FaFutbol,
+  FaTableTennis,
+  FaBus,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { MissionVisionSection } from "./About";
+import AboutImg_1 from "../assets/imgs/home/1.jpeg"
+import AboutImg_2 from "../assets/imgs/home/2.jpeg"
+import ClassImg from "../assets/imgs/facilities/class.jpeg"
+import CompLab from "../assets/imgs/facilities/computer_lab.jpeg"
+import FacultyImg from "../assets/imgs/facilities/faculty.jpeg"
+import FballGImg from "../assets/imgs/facilities/football_ground.jpeg"
+import BadMinImg from "../assets/imgs/facilities/badminton_court.jfif"
+import LibraryImg from "../assets/imgs/facilities/library.jpeg"
+import HallImg from "../assets/imgs/facilities/school_hall.jpg"
+import TransportImg from "../assets/imgs/facilities/transport.jpeg"
+
+
+/* ---------------- Facility panel ---------------- */
+
+const FACILITIES = [
+  {
+    Icon: FaChalkboardTeacher,
+    title: "Qualified Faculty",
+    caption: "Experienced teachers who notice every student.",
+    img: FacultyImg,
+  },
+  {
+    Icon: FaFlask,
+    title: "Science & Computer Labs",
+    caption: "Physics, Chemistry, Biology & Computer labs, fully equipped.",
+    img: CompLab,
+  },
+  {
+    Icon: FaLaptop,
+    title: "Smart Classrooms",
+    caption: "100% smart-enabled, interactive digital learning.",
+    img: ClassImg,
+  },
+  {
+    Icon: FaBookOpen,
+    title: "Well-Stocked Library",
+    caption: "Wide reading & sitting area for every grade level.",
+    img: LibraryImg,
+  },
+  {
+    Icon: FaBuilding,
+    title: "Multipurpose Hall",
+    caption: "Indoor space for assemblies, events, and activities.",
+    img: HallImg,
+  },
+  {
+    Icon: FaFutbol,
+    title: "Football & Cricket Grounds",
+    caption: "Full-size grounds for matches and sports meets.",
+    img: FballGImg,
+  },
+  {
+    Icon: FaTableTennis,
+    title: "Badminton & Volleyball Courts",
+    caption: "Dedicated courts for daily practice and play.",
+    img: BadMinImg,
+  },
+  {
+    Icon: FaBus,
+    title: "GPS-Enabled Transportation",
+    caption: "Live-tracked buses, safe pickup and drop every day.",
+    img: TransportImg,
+  },
+];
+
+
+function FacilityPanel({ Icon, title, caption, img }) {
+  return (
+    <div className="group relative rounded-xl overflow-hidden h-64 sm:h-72 cursor-pointer">
+      <img
+        src={img}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      {/* overlay — darker at rest, lightens on hover so the image reads more clearly */}
+      <div className="absolute inset-0 bg-[#890C25]/70 group-hover:bg-[#890C25]/25 transition-colors duration-400" />
+
+      <div className="relative z-10 h-full flex flex-col justify-end p-5 sm:p-6">
+        <span className="w-11 h-11 rounded-full bg-white/15 backdrop-blur flex items-center justify-center text-white mb-3 group-hover:bg-white group-hover:text-[#890C25] transition-colors duration-300">
+          <Icon size={17} />
+        </span>
+        <h3 className="font-logo font-semibold text-white text-[18px] sm:text-[19px] leading-snug mb-1.5">
+          {title}
+        </h3>
+        <p className="text-white/85 text-[12.5px] leading-relaxed">{caption}</p>
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Facilities section ---------------- */
+
+function FacilitiesSection() {
+  return (
+    <section className="bg-white px-5 sm:px-8 py-20 md:py-28">
+      <div className="max-w-[1300px] mx-auto">
+        <div className="text-center mb-12 md:mb-14">
+          <p className="text-[#890C25] font-semibold text-[13.5px] tracking-wide mb-3">Campus Facilities</p>
+          <h2 className="font-logo font-semibold text-[#1a1a1a] text-[2rem] sm:text-[2.5rem] leading-tight">
+            Everything a student needs, on campus
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {FACILITIES.map((f) => (
+            <FacilityPanel key={f.title} {...f} />
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-12 md:mt-14">
+          <NavLink
+            to="/facilities"
+            className="inline-flex items-center gap-3 bg-[#890C25] text-white font-medium text-[14.5px] px-8 py-3.5 rounded-sm hover:bg-[#6e0a1e] transition-colors duration-300 group"
+          >
+            Explore More Facilities
+            <FaArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+          </NavLink>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ---------------- Scroll-reveal hook (no external library needed) ---------------- */
 
@@ -54,15 +185,14 @@ function LogoBadge() {
 
 function InfoCard({ Icon, title }) {
   return (
-    <a
-      href="#"
+    <div
       className="group flex items-center gap-4 bg-[#F5F5F5] border-b-2 border-[#890C25] px-6 py-6 hover:bg-[#890C25]/5 transition-colors duration-200"
     >
       <Icon size={30} className="text-[#890C25] shrink-0" />
       <span className="font-logo font-semibold text-[#890C25] text-[18px] sm:text-[19px] leading-snug">
         {title}
       </span>
-    </a>
+    </div>
   );
 }
 
@@ -90,7 +220,7 @@ function Gallery() {
     <>
       <section className="bg-white px-5 sm:px-8 pt-20 sm:pt-24 pb-20 md:pb-28">
         <div className="max-w-[1300px] mx-auto">
-          <AnimatedHeading eyebrow="Featured" title="Moments worth a second look" />
+          <AnimatedHeading eyebrow="Gallery" title="Moments worth a second look" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 auto-rows-[160px] sm:auto-rows-[190px] md:auto-rows-[170px]">
             {visible.map((img, i) => {
               const isLast = i === visible.length - 1;
@@ -121,6 +251,14 @@ function Gallery() {
               );
             })}
           </div>
+          <div className="mt-8">
+            <NavLink
+              to="/gallery"
+              className="inline-flex items-center gap-3 bg-[#890C25] text-white font-medium text-[14.5px] px-7 py-3.5 rounded-sm hover:bg-[#6e0a1e] transition-colors duration-300 group"
+            >
+              Explore Full Gallery <FaArrowRight size={13} />
+            </NavLink>
+          </div>
         </div>
 
         <Lightbox images={FEATURED} index={lb.index} onClose={lb.close} onPrev={lb.prev} onNext={lb.next} />
@@ -141,12 +279,12 @@ const Home = () => {
           {/* image cluster */}
           <div className="relative grid grid-cols-2 gap-5 sm:gap-6">
             <img
-              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=80"
+              src={AboutImg_2}
               alt="University clock tower"
               className="w-full h-[300px] sm:h-[420px] md:h-[480px] object-cover rounded-sm"
             />
             <img
-              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=80"
+              src={AboutImg_1}
               alt="Graduating students"
               className="w-full h-[260px] sm:h-[380px] md:h-[430px] object-cover rounded-sm mt-6 sm:mt-8"
             />
@@ -172,23 +310,25 @@ const Home = () => {
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 mb-10">
-              <InfoCard Icon={FaHandsHelping} title={<>University Mission Statement</>} />
-              <InfoCard Icon={FaUniversity} title={<>University Vision Achievement</>} />
+              <InfoCard Icon={FaUniversity} title={<>Established In 2014</>} />
+              <InfoCard Icon={FaHandsHelping} title={<>Empowering Minds</>} />
             </div>
 
-            <a
-              href="#programs"
+            <NavLink
+              to="/about-us"
               className="inline-flex items-center gap-3 bg-[#890C25] text-white font-medium text-[14.5px] px-7 py-3.5 rounded-sm hover:bg-[#6e0a1e] transition-colors duration-300 group"
             >
-              View Our Program
+              Explore About Us
               <FaArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            </NavLink>
           </div>
         </div>
       </section>
 
       <MissionVisionSection />
       <Gallery />
+      <FacilitiesSection />
+      <Testimonials />
       {/* ---------------- CTA section ---------------- */}
       <section ref={ref} className="relative bg-[#890C25] px-5 sm:px-8 py-20 md:py-24 overflow-hidden">
         <div className="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-white/5 blur-3xl" aria-hidden="true" />

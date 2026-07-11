@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from "react";
+// Import Featured Gallery
+import breadCrumbImg from "../assets/sliderImgs/1.jpeg"
 import Img_1 from "../assets/imgs/featured/1.jpeg"
 import Img_2 from "../assets/imgs/featured/2.jpeg"
 import Img_3 from "../assets/imgs/featured/3.jpeg"
@@ -33,7 +35,89 @@ import {
     FaPlay,
     FaExpand,
 } from "react-icons/fa";
+// Import Category Gallery
+// Import Sports
+import ImgSprt_1 from "../assets/imgs/sports/1.jpeg"
+import ImgSprt_2 from "../assets/imgs/sports/2.jpeg"
+import ImgSprt_3 from "../assets/imgs/sports/3.jpeg"
+import ImgSprt_4 from "../assets/imgs/sports/4.jpeg"
+import ImgSprt_5 from "../assets/imgs/sports/5.jpeg"
+import ImgSprt_6 from "../assets/imgs/sports/6.jpeg"
+import ImgSprt_7 from "../assets/imgs/sports/7.jpeg"
 
+// Import Achievements
+import ImgAchv_1 from "../assets/imgs/achievments/1.jpeg"
+import ImgAchv_2 from "../assets/imgs/achievments/2.jpeg"
+
+// Import Memorable Moments
+import ImgMemo_1 from "../assets//imgs/memorable/1.jpeg"
+import ImgMemo_2 from "../assets//imgs/memorable/2.jpeg"
+import ImgMemo_3 from "../assets//imgs/memorable/3.jpeg"
+import ImgMemo_4 from "../assets//imgs/memorable/4.jpeg"
+import ImgMemo_5 from "../assets//imgs/memorable/5.jpeg"
+import ImgMemo_6 from "../assets//imgs/memorable/6.jpeg"
+import ImgMemo_7 from "../assets//imgs/memorable/7.jpeg"
+import ImgMemo_8 from "../assets//imgs/memorable/8.jpeg"
+import ImgMemo_9 from "../assets//imgs/memorable/9.jpeg"
+import ImgMemo_10 from "../assets//imgs/memorable/10.jpeg"
+import ImgMemo_11 from "../assets//imgs/memorable/11.jpeg"
+import ImgMemo_12 from "../assets//imgs/memorable/12.jpeg"
+import ImgMemo_13 from "../assets//imgs/memorable/13.jpeg"
+import ImgMemo_14 from "../assets//imgs/memorable/13.jpeg"
+import ImgMemo_15 from "../assets//imgs/memorable/13.jpeg"
+
+
+// Import Event & Activities
+import ImgEA_1 from "../assets/imgs/event_activity/1.jpeg"
+import ImgEA_2 from "../assets/imgs/event_activity/2.jpeg"
+import ImgEA_3 from "../assets/imgs/event_activity/3.jpeg"
+import ImgEA_4 from "../assets/imgs/event_activity/4.jpeg"
+
+// Import Cultural
+import ImgCul_1 from "../assets/imgs/cultural/1.jpeg"
+import ImgCul_2 from "../assets/imgs/cultural/2.jpeg"
+import ImgCul_3 from "../assets/imgs/cultural/3.jpeg"
+import ImgCul_4 from "../assets/imgs/cultural/4.jpeg"
+import ImgCul_5 from "../assets/imgs/cultural/5.jpeg"
+import ImgCul_6 from "../assets/imgs/cultural/6.jpeg"
+import ImgCul_7 from "../assets/imgs/cultural/7.jpeg"
+import ImgCul_8 from "../assets/imgs/cultural/8.jpeg"
+import ImgCul_9 from "../assets/imgs/cultural/9.jpeg"
+import ImgCul_10 from "../assets/imgs/cultural/10.jpeg"
+import ImgCul_11 from "../assets/imgs/cultural/11.jpeg"
+
+// Import Campus Life
+import ImgCamL_1 from "../assets/imgs/campus_life/1.jpeg"
+import ImgCamL_2 from "../assets/imgs/campus_life/2.jpeg"
+import ImgCamL_3 from "../assets/imgs/campus_life/3.jpeg"
+import ImgCamL_4 from "../assets/imgs/campus_life/4.jpeg"
+import ImgCamL_5 from "../assets/imgs/campus_life/5.jpeg"
+import ImgCamL_6 from "../assets/imgs/campus_life/6.jpeg"
+import ImgCamL_7 from "../assets/imgs/campus_life/7.jpeg"
+import ImgCamL_8 from "../assets/imgs/campus_life/8.jpeg"
+import ImgCamL_9 from "../assets/imgs/campus_life/9.jpeg"
+import ImgCamL_10 from "../assets/imgs/campus_life/10.jpeg"
+import ImgCamL_11 from "../assets/imgs/campus_life/11.jpeg"
+import ImgCamL_12 from "../assets/imgs/campus_life/12.jpeg"
+import ImgCamL_13 from "../assets/imgs/campus_life/13.jpeg"
+import ImgCamL_14 from "../assets/imgs/campus_life/14.jpeg"
+import ImgCamL_15 from "../assets/imgs/campus_life/15.jpeg"
+import ImgCamL_16 from "../assets/imgs/campus_life/16.jpeg"
+import ImgCamL_17 from "../assets/imgs/campus_life/17.jpeg"
+import ImgCamL_18 from "../assets/imgs/campus_life/18.jpeg"
+import ImgCamL_19 from "../assets/imgs/campus_life/19.jpeg"
+import ImgCamL_20 from "../assets/imgs/campus_life/20.jpeg"
+import ImgCamL_21 from "../assets/imgs/campus_life/21.jpeg"
+import ImgCamL_22 from "../assets/imgs/campus_life/22.jpeg"
+import ImgCamL_23 from "../assets/imgs/campus_life/23.jpeg"
+import ImgCamL_24 from "../assets/imgs/campus_life/24.jpeg"
+import ImgCamL_25 from "../assets/imgs/campus_life/25.jpeg"
+import ImgCamL_26 from "../assets/imgs/campus_life/26.jpeg"
+import ImgCamL_27 from "../assets/imgs/campus_life/27.jpeg"
+import ImgCamL_28 from "../assets/imgs/campus_life/28.jpeg"
+import ImgCamL_29 from "../assets/imgs/campus_life/29.jpeg"
+import ImgCamL_30 from "../assets/imgs/campus_life/30.jpeg"
+import ImgCamL_31 from "../assets/imgs/campus_life/31.jpeg"
 /* ---------------- Data ---------------- */
 
 // FEATURED can hold as many photos as you like - only the first FEATURED_VISIBLE_COUNT
@@ -67,33 +151,83 @@ export const FEATURED = [
 
 export const FEATURED_VISIBLE_COUNT = 5;
 
-const CATEGORIES = ["All", "Events", "Sports", "Cultural", "Campus Life"];
+const CATEGORIES = ["All", "Events & Activities", "Sports", "Cultural", "Campus Life", "Achievements", "Memorable Moments"];
 
 // CATEGORY_IMAGES can hold as many photos per category as you like - the grid below
 // only renders the first CATEGORY_VISIBLE_COUNT results for whatever tab/search is
 // active. The remaining matches for that same filter become reachable inside the
 // lightbox via next/previous.
 const CATEGORY_IMAGES = [
-    { src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80", caption: "Graduating Class Walk", category: "Events" },
-    { src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80", caption: "Degree Handover Ceremony", category: "Events" },
-    { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80", caption: "Valedictorian Address", category: "Events" },
-    { src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&flip=1", caption: "Robe & Sash Distribution", category: "Events" },
-    { src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80&flip=1", caption: "Convocation Hall, Evening", category: "Events" },
-    { src: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80", caption: "Inter-House Football", category: "Sports" },
-    { src: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80", caption: "Athletics Meet, Track Finals", category: "Sports" },
-    { src: "https://images.unsplash.com/photo-1552667466-07770ae110d0?w=800&q=80", caption: "Basketball Championship", category: "Sports" },
-    { src: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80&flip=1", caption: "Swimming Invitational", category: "Sports" },
-    { src: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80&flip=1", caption: "Relay Handoff, Finals Day", category: "Sports" },
-    { src: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80", caption: "Annual Day Rehearsal", category: "Cultural" },
-    { src: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80", caption: "Debate Society Finals", category: "Cultural" },
-    { src: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&q=80", caption: "Music & Arts Festival", category: "Cultural" },
-    { src: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80&flip=1", caption: "Drama Club Opening Night", category: "Cultural" },
-    { src: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80&flip=1", caption: "Poetry Slam Finals", category: "Cultural" },
-    { src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80", caption: "Science Lab Session", category: "Campus Life" },
-    { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80", caption: "Library Reading Hour", category: "Campus Life" },
-    { src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80", caption: "Campus Clock Tower", category: "Campus Life" },
-    { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&flip=1", caption: "Morning Assembly", category: "Campus Life" },
-    { src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&flip=1", caption: "Robotics Club Workshop", category: "Campus Life" },
+    { src: ImgSprt_1, caption: "Sports", category: "Sports" },
+    { src: ImgSprt_2, caption: "Sports", category: "Sports" },
+    { src: ImgSprt_3, caption: "Sports", category: "Sports" },
+    { src: ImgSprt_4, caption: "Sports", category: "Sports" },
+    { src: ImgSprt_5, caption: "Sports", category: "Sports" },
+    { src: ImgSprt_6, caption: "Sports", category: "Sports" },
+    { src: ImgSprt_7, caption: "Sports", category: "Sports" },
+    { src: ImgAchv_1, caption: "Achievements", category: "Achievements" },
+    { src: ImgAchv_2, caption: "Achievements", category: "Achievements" },
+    { src: ImgMemo_1, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_2, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_3, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_4, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_5, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_6, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_7, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_8, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_9, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_10, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_11, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_12, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_13, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_14, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgMemo_15, caption: "Memorable Moments", category: "Memorable Moments" },
+    { src: ImgEA_1, caption: "Events & Activities", category: "Events & Activities" },
+    { src: ImgEA_2, caption: "Events & Activities", category: "Events & Activities" },
+    { src: ImgEA_3, caption: "Events & Activities", category: "Events & Activities" },
+    { src: ImgEA_4, caption: "Events & Activities", category: "Events & Activities" },
+    { src: ImgCul_1, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_2, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_3, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_4, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_5, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_6, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_7, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_8, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_9, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_10, caption: "Cultural", category: "Cultural" },
+    { src: ImgCul_11, caption: "Cultural", category: "Cultural" },
+    { src: ImgCamL_1, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_2, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_3, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_4, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_5, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_6, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_7, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_8, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_9, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_10, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_11, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_12, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_13, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_14, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_15, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_16, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_17, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_18, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_19, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_20, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_21, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_22, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_23, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_24, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_25, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_26, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_27, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_28, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_29, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_30, caption: "Campus Life", category: "Campus Life" },
+    { src: ImgCamL_31, caption: "Campus Life", category: "Campus Life" },
 ];
 
 const CATEGORY_VISIBLE_COUNT = 12;
@@ -222,8 +356,8 @@ function GalleryHeroBanner() {
     return (
         <section className="relative h-[320px] sm:h-[400px] w-full overflow-hidden bg-[#111]">
             <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1800&q=80"
-                alt=""
+                src={breadCrumbImg}
+                alt="school_banner"
                 className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/20" />
@@ -282,7 +416,7 @@ export default function Gallery() {
             <StatsStrip />
             <section className="bg-white px-5 sm:px-8 pt-20 sm:pt-24 pb-20 md:pb-28">
                 <div className="max-w-[1300px] mx-auto">
-                    <AnimatedHeading eyebrow="Featured" title="Moments worth a second look" />
+                    <AnimatedHeading eyebrow="Gallery" title="Moments worth a second look" />
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 auto-rows-[160px] sm:auto-rows-[190px] md:auto-rows-[170px]">
                         {visible.map((img, i) => {
                             const isLast = i === visible.length - 1;

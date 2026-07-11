@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
+import breadCrumbImg from "../assets/sliderImgs/1.jpeg"
+import CTASection from "../components/CTASection/CTASection"
 import {
     FaChevronRight,
     FaChalkboardTeacher,
@@ -107,8 +109,8 @@ function FacilitiesHeroBanner() {
     return (
         <section className="relative h-[320px] sm:h-[400px] w-full overflow-hidden bg-[#111]">
             <img
-                src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1800&q=80"
-                alt=""
+                src={breadCrumbImg}
+                alt="school_banner"
                 className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/20" />
@@ -122,7 +124,7 @@ function FacilitiesHeroBanner() {
                     Our Facilities
                 </h1>
                 <p className="text-white/75 text-[15px] sm:text-[16px] max-w-lg">
-                    Everything a student needs, on one campus — from science labs to sports grounds.
+                    Everything a student needs, on one campus - from science labs to sports grounds.
                 </p>
             </div>
         </section>
@@ -183,38 +185,6 @@ function Facility({ eyebrow, title, sub, items, tint }) {
                 </div>
             </section>
         </>
-    );
-}
-
-/* ---------------- CTA ---------------- */
-
-function CTASection() {
-    const [ref, visible] = useReveal();
-    return (
-        <section ref={ref} className="relative bg-[#890C25] px-5 sm:px-8 py-20 md:py-24 overflow-hidden">
-            <div className="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-white/5 blur-3xl" aria-hidden="true" />
-            <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-white/5 blur-3xl" aria-hidden="true" />
-            <div
-                className={`relative max-w-2xl mx-auto text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                    }`}
-            >
-                <span className="inline-flex w-14 h-14 rounded-full bg-white/15 items-center justify-center mb-6">
-                    <FaSchool size={22} className="text-white" />
-                </span>
-                <h2 className="font-logo font-semibold text-white text-[2rem] sm:text-[2.6rem] leading-tight mb-6">
-                    Come see the campus for yourself.
-                </h2>
-                <p className="text-white/75 text-[15px] mb-9 max-w-lg mx-auto">
-                    Photos only go so far — book a walk-through and see the labs, courts, and classrooms in person.
-                </p>
-                <a
-                    href="#contact"
-                    className="inline-flex items-center gap-2 bg-white text-[#890C25] font-semibold text-[14.5px] px-8 py-3.5 rounded-md hover:bg-[#F7F4EC] transition-colors duration-300"
-                >
-                    Schedule a Campus Tour <FaArrowRight size={13} />
-                </a>
-            </div>
-        </section>
     );
 }
 

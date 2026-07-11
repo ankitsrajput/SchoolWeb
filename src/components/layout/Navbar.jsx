@@ -66,11 +66,11 @@ const MENU = [
 ];
 
 const SOCIALS = [
-    { Icon: FaFacebookF, label: "Facebook" },
-    { Icon: FaInstagram, label: "Instagram" },
-    { Icon: FaTwitter, label: "Twitter" },
-    { Icon: FaLinkedinIn, label: "LinkedIn" },
-    { Icon: FaYoutube, label: "YouTube" },
+    { Icon: FaFacebookF, label: "Facebook", path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr" },
+    { Icon: FaInstagram, label: "Instagram", path: "https://www.instagram.com/sr_ls_international_pub_school" },
+    { Icon: FaTwitter, label: "Twitter", path: "https://www.x.com/" },
+    { Icon: FaLinkedinIn, label: "LinkedIn", path: "https://www.linkedin.com/" },
+    { Icon: FaYoutube, label: "YouTube", path: "https://www.youtube.com/" },
 ];
 
 /* ---------------- Logo ---------------- */
@@ -140,13 +140,20 @@ function DesktopMenuItem({ item }) {
 
 /* ---------------- Mobile accordion item ---------------- */
 
-function MobileMenuItem({ item }) {
+function MobileMenuItem({ item, onClose }) {
     const [open, setOpen] = useState(false);
 
     return (
         <div className="border-b border-white/15">
             <NavLink to={item.path}
-                onClick={() => item.dropdown && setOpen((v) => !v)}
+                onClick={() => {
+                    if (item.dropdown) {
+                        setOpen((v) => !v)
+                    } else {
+                        onClose();
+                    }
+                }}
+
                 className="w-full flex items-center justify-between py-4 text-left text-[17px] font-medium text-white"
             >
                 {item.label}
@@ -158,16 +165,18 @@ function MobileMenuItem({ item }) {
                 )}
             </NavLink>
 
+
             {item.dropdown && (
                 <div
                     className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${open ? "max-h-40" : "max-h-0"
                         }`}
                 >
                     <div className="flex flex-col gap-1 pb-4 pl-2">
-                        {item.dropdown.map((d, i) => (
+                        {item.dropdown.map((d, i, onClose) => (
                             <NavLink
                                 key={i}
                                 to={d.path}
+                                onClick={onClose}
                                 className="text-[14.5px] text-white/70 hover:text-white py-1.5 transition-colors duration-200"
                             >
                                 {d.label}
@@ -208,19 +217,20 @@ function Offcanvas({ open, onClose }) {
 
                 <nav className="flex-1 overflow-y-auto px-6 pt-2" title="Click-to-open">
                     {MENU.map((item) => (
-                        <MobileMenuItem key={item.label} item={item} />
+                        <MobileMenuItem key={item.label} item={item} onClick={onClose} />
                     ))}
                 </nav>
 
                 <div className="px-6 py-6 border-t border-white/15">
                     <p className="text-white/60 text-[12px] tracking-[0.2em] uppercase mb-4">Follow Us</p>
                     <div className="flex gap-3">
-                        {SOCIALS.map(({ Icon, label }) => (
+                        {SOCIALS.map(({ Icon, label, path }) => (
                             <NavLink
                                 key={label}
-                                to={label.toLocaleLowerCase()}
+                                to={path}
                                 aria-label={label}
                                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-[#890C25] transition-colors duration-200"
+                                target="_blank"
                             >
                                 <Icon size={15} />
                             </NavLink>

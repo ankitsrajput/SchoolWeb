@@ -13,31 +13,33 @@ import {
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/logo/school_logo.png"
 
-const CAMPUS_LINKS_1 = ["Academic", "Athletics", "Campus life", "Research", "Academic Area"];
-const CAMPUS_LINKS_2 = ["About", "Tuition Fee", "Alumni", "Faculty Staff", "Event"];
+const CAMPUS_LABEL_1 = ["About Us", "Gallery", "Facilities", "Contact Us", "Admission"];
+const CAMPUS_LINKS_1 = ["/about-us", "/gallery", "/facilities", "/contact-us", "/admission"];
+const CAMPUS_LABEL_2 = ["Director's Desk", "Chairman's Desk", "Principal's Desk", "Vice Principal's Desk"];
+const CAMPUS_LINKS_2 = ["/director-desk", "/chairman-desk", "/principal-desk", "/vice-principal-desk"];
 
 const SOCIALS = [
-  { 
+  {
     Icon: FaFacebookF,
     label: "Facebook",
     path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr"
   },
-  { 
+  {
     Icon: FaInstagram,
     label: "Instagram",
     path: "https://www.instagram.com/sr_ls_international_pub_school"
   },
-  { 
+  {
     Icon: FaTwitter,
     label: "Twitter",
     path: "https://x.com/"
   },
-  { 
+  {
     Icon: FaLinkedinIn,
     label: "LinkedIn",
     path: "https://www.linkedin.com/"
   },
-  { 
+  {
     Icon: FaYoutube,
     label: "YouTube",
     path: "https://www.youtube.com/"
@@ -59,9 +61,8 @@ function ScrollToTop() {
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
-      className={`fixed bottom-6 right-5 sm:right-8 z-50 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-[#890C25] flex items-center justify-center shadow-lg hover:bg-[#890C25] hover:text-white transition-all duration-300 ${
-        visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-3 pointer-events-none"
-      }`}
+      className={`fixed bottom-6 right-5 sm:right-8 z-50 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-[#890C25] flex items-center justify-center shadow-lg hover:bg-[#890C25] hover:text-white transition-all duration-300 ${visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-3 pointer-events-none"
+        }`}
     >
       <FaChevronUp size={16} />
     </button>
@@ -70,18 +71,18 @@ function ScrollToTop() {
 
 /* ---------------- Footer link column ---------------- */
 
-function LinkColumn({ title, links }) {
+function LinkColumn({ title, label, links }) {
   return (
     <div>
-      <h3 className="font-body font-semibold text-white text-[18px] sm:text-[20px] underline decoration-2 underline-offset-4 mb-6">
+      <h3 className="font-body font-semibold text-white text-[18px] sm:text-[20px] decoration-2  mb-6">
         {title}
       </h3>
       <ul className="flex flex-col gap-3.5">
         {links.map((l) => (
           <li key={l}>
-            <a href="#" className="text-[#8b8b8d] text-[15px] hover:text-white transition-colors duration-200">
-              {l}
-            </a>
+            <NavLink to={l} className="text-[#8b8b8d] text-[15px] hover:text-white transition-colors duration-200">
+              {label[links.indexOf(l)]}
+            </NavLink>
           </li>
         ))}
       </ul>
@@ -121,13 +122,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <LinkColumn title="Our Campus" links={CAMPUS_LINKS_1} />
-        <LinkColumn title="Our Campus" links={CAMPUS_LINKS_2} />
+        <LinkColumn title="Useful Links" label={CAMPUS_LABEL_1} links={CAMPUS_LINKS_1} />
+        <LinkColumn title="Management" label={CAMPUS_LABEL_2} links={CAMPUS_LINKS_2} />
 
         {/* social links — replaces "Recent Post" from the reference */}
         <div>
-          <h3 className="font-body font-semibold text-white text-[18px] sm:text-[20px] underline decoration-2 underline-offset-4 mb-6">
-            Follow Us
+          <h3 className="font-body font-semibold text-white text-[18px] sm:text-[20px] decoration-2 mb-6">
+            Follow Us on
           </h3>
           <p className="text-[#8b8b8d] text-[15px] leading-relaxed mb-6 max-w-xs">
             Stay updated with campus news, events, and student stories.

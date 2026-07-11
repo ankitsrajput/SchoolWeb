@@ -10,40 +10,44 @@ import {
     FaChevronLeft,
     FaChevronRight
 } from "react-icons/fa";
-
+import { NavLink } from "react-router-dom";
 const SLIDES = [
     {
-        eyebrow: "Knowledge Meets Innovation",
-        title: ["Unleashing Potential", "Fostering Excellence"],
-        cta: "View Our Program",
+        eyebrow: "Welcome to SRLS International Public School",
+        title: ["Where Learning", "Creates Leaders"],
+        cta: "About School",
+        path: "/about-us",
         img: SliderImg1,
     },
     {
-        eyebrow: "Est. 1965 · Globally Ranked",
-        title: ["A Legacy Built On", "Academic Rigour"],
-        cta: "Explore Programs",
+        eyebrow: "CBSE Curriculum",
+        title: ["Academic Excellence", "& Moral Values"],
+        cta: "Vision & Mission",
+        path: "/about-us#mission-vision",
         img: SliderImg2,
     },
     {
-        eyebrow: "Campus Life",
-        title: ["More Than A Degree,", "A Community"],
-        cta: "Tour The Campus",
+        eyebrow: "Beyond Academics",
+        title: ["Sports, Arts &", "Co-Curricular Activities"],
+        cta: "Campus Life",
+        path: "/gallery",
         img: SliderImg3,
     },
     {
-        eyebrow: "Research & Innovation",
-        title: ["Where Curiosity Meets", "Real-World Impact"],
-        cta: "See Our Research",
+        eyebrow: "Modern Infrastructure",
+        title: ["Smart Classrooms", "& Advanced Laboratories"],
+        cta: "Our Facilities",
+        path: "/facilities",
         img: SliderImg4,
     },
     {
         eyebrow: "Admissions Open",
-        title: ["Your Future Starts", "Right Here"],
-        cta: "Apply Now",
+        title: ["Your Child's Future", "Starts Here"],
+        cta: "Admission Enquiry",
+        path: "/admission",
         img: SliderImg5,
     },
 ];
-
 
 /* ---------------- Hero Slider ---------------- */
 
@@ -79,13 +83,13 @@ export default function HeroSlider() {
                         <br />
                         {SLIDES[index].title[1]}
                     </h1>
-                    <a
-                        href="#apply"
+                    <NavLink
+                        to={`${SLIDES[index].path.toLowerCase().replace(/ /g, "-")}`}
                         className="inline-flex items-center gap-3 bg-[#890C25] text-white font-medium text-[14.5px] px-7 py-3.5 rounded-sm hover:bg-white hover:text-[#890C25] transition-colors duration-300 group"
                     >
                         {SLIDES[index].cta}
                         <FaArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
-                    </a>
+                    </NavLink>
                 </div>
             </div>
 
