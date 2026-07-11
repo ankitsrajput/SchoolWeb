@@ -93,6 +93,15 @@ function LinkColumn({ title, label, links }) {
 /* ---------------- Footer ---------------- */
 
 export default function Footer() {
+  
+  const now = new Date();
+  const year =
+    now.getMonth() >= 3 // April = 3 (0-based)
+      ? now.getFullYear()
+      : now.getFullYear() - 1;
+
+  const session = `${year}-${String((year + 1) % 100).padStart(2, "0")}`;
+
   return (
     <footer className="bg-[#131313] pt-16 sm:pt-20">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-14">
@@ -153,7 +162,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-6 flex flex-col items-center gap-1.5 text-center">
           <p className="text-[#8b8b8d] text-[14px] sm:text-[15px]">
-            Copyright © 2026 All Rights Reserved by <span className="text-[#890C25] font-medium">Sr. LS International Public School</span>
+            Copyright © {session} All Rights Reserved by <span className="text-[#890C25] font-medium">Sr. LS International Public School</span>
           </p>
           <p className="text-[#5f5f61] text-[12.5px]">
             Designed by <span className="text-[#8b8b8d]"><NavLink to="https://wa.me/917651849593?text=Hi%20Ankit,%20I'd%20like%20to%20build%20a%20website%20similar%20to%20this.%20Could%20we%20discuss%20the%20project?" target="_blank">Ankit Singh Rajput</NavLink></span>
