@@ -156,7 +156,7 @@ export default function Footer() {
             Copyright © 2026 All Rights Reserved by <span className="text-[#890C25] font-medium">Sr. LS International Public School</span>
           </p>
           <p className="text-[#5f5f61] text-[12.5px]">
-            Designed by <span className="text-[#8b8b8d]"><NavLink to="#">Ankit Singh Rajput</NavLink></span>
+            Designed by <span className="text-[#8b8b8d]"><NavLink to="https://wa.me/917651849593?text=Hi%20Ankit,%20I'd%20like%20to%20build%20a%20website%20similar%20to%20this.%20Could%20we%20discuss%20the%20project?" target="_blank">Ankit Singh Rajput</NavLink></span>
           </p>
         </div>
       </div>
