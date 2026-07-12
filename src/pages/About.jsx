@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import breadCrumbImg from "../assets/sliderImgs/1.jpeg"
+import breadCrumbImg from "../assets/sliderImgs/breadCrumb.jpeg"
 import CTASection from "../components/CTASection/CTASection";
 import {
     FaChevronRight,
@@ -70,7 +70,7 @@ function PageHeaderBanner() {
             <img
                 src={breadCrumbImg}
                 alt="school_banner"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/40 to-black/20" />
             <div className="relative z-10 h-full max-w-[1400px] mx-auto px-5 sm:px-8 flex flex-col justify-end pb-9 sm:pb-12">

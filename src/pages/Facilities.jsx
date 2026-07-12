@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import breadCrumbImg from "../assets/sliderImgs/1.jpeg"
+import breadCrumbImg from "../assets/imgs/facilities/class.jpeg"
 import CTASection from "../components/CTASection/CTASection"
 import {
     FaChevronRight,

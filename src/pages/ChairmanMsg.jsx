@@ -1,6 +1,6 @@
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";
-import breadCrumbImg from "../assets/sliderImgs/1.jpeg"
+import breadCrumbImg from "../assets/sliderImgs/breadCrumb.jpeg"
 import ChairmanImg from "../assets/management/chairman.jpg"
 
 
@@ -12,7 +12,7 @@ function PageHeaderBanner({ crumbs, title }) {
             <img
                 src={breadCrumbImg}
                 alt="school_banner"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/20" />
 
