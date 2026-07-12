@@ -5,39 +5,28 @@ import {
   FaChevronUp,
   FaFacebookF,
   FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
   FaYoutube,
-  FaGraduationCap,
+  FaWhatsapp,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/logo/school_logo.png"
 
-const CAMPUS_LABEL_1 = ["About Us", "Gallery", "Facilities", "Contact Us", "Admission"];
-const CAMPUS_LINKS_1 = ["/about-us", "/gallery", "/facilities", "/contact-us", "/admission"];
-const CAMPUS_LABEL_2 = ["Director's Desk", "Chairman's Desk", "Principal's Desk", "Vice Principal's Desk"];
+const CAMPUS_LABEL_1 = ["About Us", "Mandatory Disclosure", "Gallery", "Facilities", "Contact Us", "Admission"];
+const CAMPUS_LINKS_1 = ["/about-us", "/mandatory-disclosure", "/gallery", "/facilities", "/contact-us", "/admission"];
+const CAMPUS_LABEL_2 = ["Founder's Desk", "Chairman's Desk", "Principal's Desk", "Vice Principal's Desk"];
 const CAMPUS_LINKS_2 = ["/director-desk", "/chairman-desk", "/principal-desk", "/vice-principal-desk"];
 
 const SOCIALS = [
-  {
-    Icon: FaFacebookF,
-    label: "Facebook",
-    path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr"
-  },
+
   {
     Icon: FaInstagram,
     label: "Instagram",
     path: "https://www.instagram.com/sr_ls_international_pub_school"
   },
   {
-    Icon: FaTwitter,
-    label: "Twitter",
-    path: "https://x.com/"
-  },
-  {
-    Icon: FaLinkedinIn,
-    label: "LinkedIn",
-    path: "https://www.linkedin.com/"
+    Icon: FaFacebookF,
+    label: "Facebook",
+    path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr"
   },
   {
     Icon: FaYoutube,
@@ -93,7 +82,7 @@ function LinkColumn({ title, label, links }) {
 /* ---------------- Footer ---------------- */
 
 export default function Footer() {
-  
+
   const now = new Date();
   const year =
     now.getMonth() >= 3 // April = 3 (0-based)
@@ -108,12 +97,12 @@ export default function Footer() {
         {/* logo + about */}
         <div className="lg:col-span-1">
           <NavLink to="/" className="flex items-center gap-3 mb-6">
-            <span className="w-11 h-11 rounded-full border-2 border-white flex items-center justify-center text-white shrink-0">
+            <span className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-white shrink-0">
               <img src={Logo} alt="school_logo" />
             </span>
             <span className="flex flex-col leading-none">
               <span className="font-logo font-bold text-white text-[22px] tracking-wide">Sr. LS International</span>
-              <span className="font-logo font-semibold text-[#8b8b8d] text-[11px] tracking-[0.25em]">PUBLIC SCHOOL</span>
+              <span className="font-logo font-semibold text-[#8b8b8d] text-[18px] tracking-[0.25em]">PUBLIC SCHOOL</span>
             </span>
           </NavLink>
 
@@ -127,7 +116,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2.5 text-[#8b8b8d] text-[15px]">
             <FaPhoneAlt size={14} className="shrink-0" />
-            +91-9580900900
+            +91-9580900900, 9415146050, 9935920525
           </div>
         </div>
 
@@ -157,15 +146,20 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
+      <a
+        href="https://wa.me/919580900900?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20admission.%20Please%20share%20the%20details."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-5 left-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-all duration-300 hover:scale-110 hover:bg-[#20c45a] md:bottom-8 md:left-8"
+      >
+        <FaWhatsapp className="text-3xl" />
+      </a>
       {/* bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-6 flex flex-col items-center gap-1.5 text-center">
           <p className="text-[#8b8b8d] text-[14px] sm:text-[15px]">
             Copyright © {session} All Rights Reserved by <span className="text-[#890C25] font-medium">Sr. LS International Public School</span>
-          </p>
-          <p className="text-[#5f5f61] text-[12.5px]">
-            Designed by <span className="text-[#8b8b8d]"><NavLink to="https://wa.me/917651849593?text=Hi%20Ankit,%20I'd%20like%20to%20build%20a%20website%20similar%20to%20this.%20Could%20we%20discuss%20the%20project?" target="_blank">Ankit Singh Rajput</NavLink></span>
           </p>
         </div>
       </div>

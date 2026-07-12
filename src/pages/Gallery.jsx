@@ -414,7 +414,7 @@ export default function Gallery() {
         <>
             <GalleryHeroBanner />
             <StatsStrip />
-            <section className="bg-white px-5 sm:px-8 pt-20 sm:pt-24 pb-20 md:pb-28">
+            <section className="bg-white px-5 sm:px-8 pt-20 sm:pt-18 pb-20 md:pb-28">
                 <div className="max-w-[1300px] mx-auto">
                     <AnimatedHeading eyebrow="Gallery" title="Moments worth a second look" />
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 auto-rows-[160px] sm:auto-rows-[190px] md:auto-rows-[170px]">
@@ -478,7 +478,7 @@ function CategoryGallery() {
     const lb = useLightbox(filtered);
 
     return (
-        <section className="bg-[#F7F4EC] px-5 sm:px-8 py-20 md:py-28">
+        <section className="bg-[#F7F4EC] px-5 sm:px-8 py-20 md:py-18">
             <div className="max-w-[1300px] mx-auto">
                 <AnimatedHeading eyebrow="Browse By Event" title="Explore the full archive" center />
 
@@ -569,7 +569,7 @@ function VideoCarousel() {
     };
 
     return (
-        <section className="bg-white px-5 sm:px-8 py-20 md:py-28">
+        <section className="bg-white px-5 sm:px-8 py-20 md:py-18">
             <div className="max-w-[1300px] mx-auto">
                 <div className="flex items-end justify-between mb-2">
                     <AnimatedHeading eyebrow="Watch" title="Video Gallery" />

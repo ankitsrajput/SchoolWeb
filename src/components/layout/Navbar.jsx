@@ -25,11 +25,16 @@ const MENU = [
         dropdown: null
     },
     {
+        label: "Mandatory Disclosure",
+        path: "/mandatory-disclosure",
+        dropdown: null
+    },
+    {
         label: "Management",
         path: "#",
         dropdown: [
             {
-                label: "Director's Message",
+                label: "Founder's Message",
                 path: "/director-desk"
 
 
@@ -54,7 +59,7 @@ const MENU = [
         dropdown: null
     },
     {
-        label: "facilities",
+        label: "Facilities",
         path: "facilities",
         dropdown: null
     },
@@ -66,10 +71,8 @@ const MENU = [
 ];
 
 const SOCIALS = [
-    { Icon: FaFacebookF, label: "Facebook", path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr" },
     { Icon: FaInstagram, label: "Instagram", path: "https://www.instagram.com/sr_ls_international_pub_school" },
-    { Icon: FaTwitter, label: "Twitter", path: "https://www.x.com/" },
-    { Icon: FaLinkedinIn, label: "LinkedIn", path: "https://www.linkedin.com/" },
+    { Icon: FaFacebookF, label: "Facebook", path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr" },
     { Icon: FaYoutube, label: "YouTube", path: "https://www.youtube.com/" },
 ];
 
@@ -78,14 +81,14 @@ const SOCIALS = [
 function Logo() {
     return (
         <NavLink to="/" className="flex items-center gap-3 shrink-0">
-            <span className="w-11 h-11 rounded-full border-2 border-[#890C25] flex items-center justify-center text-[#890C25] shrink-0">
+            <span className="w-12 h-12 rounded-full border-2 border-[#890C25] flex items-center justify-center text-[#890C25] shrink-0">
                 <img src={SchoolLogo} alt="School_Logo" />
             </span>
             <span className="flex flex-col leading-none">
                 <span className="font-logo font-bold text-[#890C25] text-[22px] tracking-wide">
                     Sr. LS International
                 </span>
-                <span className="font-logo font-semibold text-[#737477] text-[11px] tracking-[0.25em]">
+                <span className="font-logo font-semibold text-[#890c25] text-[18px] uppercase tracking-[0.25em]">
                     Public School
                 </span>
             </span>
@@ -253,7 +256,7 @@ export default function Navbar() {
                 <Logo />
 
                 {/* desktop menu — fills remaining space to the right */}
-                <nav className="hidden lg:flex items-center gap-9 ml-auto hover:cursor-pointer">
+                <nav className="hidden lg:flex items-center gap-6 ml-auto hover:cursor-pointer">
                     {MENU.map((item) => (
                         <DesktopMenuItem key={item.label} item={item} />
                     ))}
@@ -261,7 +264,7 @@ export default function Navbar() {
 
                 <NavLink
                     to="/admission"
-                    className="hidden lg:inline-flex items-center bg-[#890C25] text-white text-[14px] font-medium px-6 py-2.5 rounded-full ml-8 hover:bg-[#6e0a1e] transition-colors duration-200"
+                    className="hidden lg:inline-flex items-center bg-[#890C25] text-white text-[14px] font-medium px-3 py-2 rounded-full ml-5 hover:bg-[#6e0a1e] transition-colors duration-200"
                 >
                     Admission Open
                 </NavLink>

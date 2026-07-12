@@ -17,6 +17,7 @@ import {
   FaFutbol,
   FaTableTennis,
   FaBus,
+  FaBullhorn
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { MissionVisionSection } from "./About";
@@ -114,7 +115,7 @@ function FacilityPanel({ Icon, title, caption, img }) {
 
 function FacilitiesSection() {
   return (
-    <section className="bg-white px-5 sm:px-8 py-20 md:py-28">
+    <section className="bg-white px-5 sm:px-8 py-20 md:py-18">
       <div className="max-w-[1300px] mx-auto">
         <div className="text-center mb-12 md:mb-14">
           <p className="text-[#890C25] font-semibold text-[13.5px] tracking-wide mb-3">Campus Facilities</p>
@@ -168,6 +169,36 @@ function useReveal() {
   return [ref, visible];
 }
 
+const MESSAGE = "Admission Closing Soon";
+
+function MarqueeItem() {
+  return (
+    <span className="flex items-center gap-3 shrink-0 px-8">
+      <FaBullhorn size={16} className="text-white/80 shrink-0" />
+      <span className="text-white font-medium text-[12px] sm:text-[12px] tracking-wide uppercase whitespace-nowrap">
+        {MESSAGE}
+      </span>
+    </span>
+  );
+}
+
+function Marquee() {
+  // render the item list twice back-to-back so the loop can reset seamlessly
+  const items = Array.from({ length: 8 });
+
+  return (
+    <div className="w-full bg-[#890C25] overflow-hidden py-1.5">
+      <div className="flex w-max marquee-track">
+        <div className="flex">
+          {items.map((_, i) => <MarqueeItem key={`a-${i}`} />)}
+        </div>
+        <div className="flex" aria-hidden="true">
+          {items.map((_, i) => <MarqueeItem key={`b-${i}`} />)}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /* ---------------- Logo badge — replaces the rotating-text seal ---------------- */
 
@@ -218,7 +249,7 @@ function Gallery() {
 
   return (
     <>
-      <section className="bg-white px-5 sm:px-8 pt-20 sm:pt-24 pb-20 md:pb-28">
+      <section className="bg-white px-5 sm:px-8 pt-20 sm:pt-24 pb-20 md:pb-18">
         <div className="max-w-[1300px] mx-auto">
           <AnimatedHeading eyebrow="Gallery" title="Moments worth a second look" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 auto-rows-[160px] sm:auto-rows-[190px] md:auto-rows-[170px]">
@@ -273,8 +304,9 @@ const Home = () => {
   const [ref, visible] = useReveal();
   return (
     <>
+      <Marquee />
       <HeroSlider />
-      <section className="bg-white px-5 sm:px-8 py-20 md:py-28 overflow-hidden">
+      <section className="bg-white px-5 sm:px-8 py-16 md:py-14 overflow-hidden">
         <div className="max-w-[1300px] mx-auto grid md:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* image cluster */}
           <div className="relative grid grid-cols-2 gap-5 sm:gap-6">

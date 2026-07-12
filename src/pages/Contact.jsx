@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import breadCrumbImg from "../assets/sliderImgs/1.jpeg"
+import breadCrumbImg from "../assets/sliderImgs/breadCrumb.jpeg"
 import {
     FaChevronRight,
     FaMapMarkerAlt,
@@ -76,7 +76,7 @@ function PageHeaderBanner() {
             <img
                 src={breadCrumbImg}
                 alt="school_banner"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/40 to-black/20" />
             <div className="relative z-10 h-full max-w-[1400px] mx-auto px-5 sm:px-8 flex flex-col justify-end pb-9 sm:pb-12">
@@ -97,7 +97,7 @@ function PageHeaderBanner() {
 
 const QUICK_CARDS = [
     { Icon: FaPhoneAlt, title: "Call Us", detail: "+91-9935920525", sub: "Mon - Sat, 9AM - 5PM" },
-    { Icon: FaEnvelope, title: "Email Us", detail: "Srlsinternational@gmail.com", sub: "We reply within 24 hrs" },
+    { Icon: FaEnvelope, title: "Email Us", detail: "Srlsinternationalpublicschool@gmail.com", sub: "We reply within 24 hrs" },
     { Icon: FaMapMarkerAlt, title: "Visit Campus", detail: "Kisai Jagdishpur, Kannauj, Uttar Pradesh-209728", sub: "Front office, Building A" },
     { Icon: FaHeadset, title: "Student Helpdesk", detail: "+91-9580900900", sub: "For enrolled students" },
 ];
@@ -114,7 +114,7 @@ function QuickContactCards() {
                         <Icon size={18} />
                     </div>
                     <p className="font-logo font-semibold text-[#1a1a1a] text-[17px] mb-1">{title}</p>
-                    <p className="text-[#890C25] text-[14.5px] font-medium mb-0.5">{detail}</p>
+                    <p className="text-[#890C25] text-[14.5px] sm:text-sm md:text-base break-all font-medium mb-0.5">{detail}</p>
                     <p className="text-[#737477] text-[13px]">{sub}</p>
                 </div>
             ))}
@@ -208,27 +208,17 @@ function ContactForm() {
 
 function ContactInfoPanel() {
     const socials = [
-        { 
-            Icon: FaFacebookF,
-            label: "Facebook",
-            path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr" 
-        },
-        { 
+        {
             Icon: FaInstagram,
             label: "Instagram",
-            path: "https://www.instagram.com/sr_ls_international_pub_school" 
+            path: "https://www.instagram.com/sr_ls_international_pub_school"
         },
-        { 
-            Icon: FaTwitter,
-            label: "Twitter",
-            path: "https://x.com/"
+        {
+            Icon: FaFacebookF,
+            label: "Facebook",
+            path: "https://www.facebook.com/share/1d7c9pM6KA/?mibextid=wwXIfr"
         },
-        { 
-            Icon: FaLinkedinIn,
-            label: "LinkedIn",
-            path: "https://www.linkedin.com/"
-        },
-        { 
+        {
             Icon: FaYoutube,
             label: "YouTube",
             path: "https://www.youtube.com/"
@@ -261,7 +251,7 @@ function ContactInfoPanel() {
                         </span>
                         <div>
                             <p className="text-white/60 text-[12.5px] uppercase tracking-wide mb-0.5">{label}</p>
-                            <p className="text-[15px] font-medium">{value}</p>
+                            <p className="text-[15px] sm:text-sm md:text-base break-all font-medium">{value}</p>
                         </div>
                     </div>
                 ))}

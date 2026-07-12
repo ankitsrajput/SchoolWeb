@@ -174,7 +174,7 @@ function FacilityCard({ Icon, title, body, index }) {
 function Facility({ eyebrow, title, sub, items, tint }) {
     return (
         <>
-            <section className={`px-5 sm:px-8 py-16 md:py-20 ${tint ? "bg-[#F7F4EC]" : "bg-white"}`}>
+            <section className={`px-5 sm:px-8 py-16 md:py-16 ${tint ? "bg-[#F7F4EC]" : "bg-white"}`}>
                 <div className="max-w-[1300px] mx-auto">
                     <AnimatedHeading eyebrow={eyebrow} title={title} sub={sub} center />
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">

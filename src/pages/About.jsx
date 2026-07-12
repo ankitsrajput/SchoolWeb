@@ -94,7 +94,7 @@ export default function About() {
     return (
         <>
             <PageHeaderBanner />
-            <section ref={ref} className="bg-white px-5 sm:px-8 py-20 md:py-28 overflow-hidden">
+            <section ref={ref} className="bg-white px-5 sm:px-8 py-20 md:py-18 overflow-hidden">
                 <div className="max-w-[1300px] mx-auto grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
                     {/* image — left */}
                     <div
@@ -199,7 +199,7 @@ function MissionVisionCard({ Icon, label, title, body, index }) {
 
 function MissionVisionSection() {
     return (
-        <section id="mission-vision" className="bg-[#F7F4EC] px-5 sm:px-8 py-20 md:py-28">
+        <section id="mission-vision" className="bg-[#F7F4EC] px-5 sm:px-8 py-20 md:py-18">
             <div className="max-w-[1300px] mx-auto">
                 <AnimatedHeading eyebrow="What Drives Us" title="Our Mission & Vision" center />
                 <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
@@ -249,7 +249,7 @@ const VALUES = [
 
 function CoreValues() {
     return (
-        <section className="bg-white px-5 sm:px-8 py-20 md:py-28">
+        <section className="bg-white px-5 sm:px-8 py-20 md:py-18">
             <div className="max-w-[1300px] mx-auto">
                 <AnimatedHeading eyebrow="Our Values" title="What we hold ourselves to" center />
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

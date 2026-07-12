@@ -229,7 +229,7 @@ function AdmissionForm() {
     };
 
     return (
-        <div className="relative bg-white rounded-xl shadow-lg shadow-black/5 border border-black/5 p-6 sm:p-9">
+        <div className="relative bg-white rounded-xl shadow-lg shadow-black/5 border border-black/5 p-6 sm:px-9">
             <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-[#890C25]/10 blur-xl" aria-hidden="true" />
 
             <p className="text-[#890C25] font-semibold text-[13.5px] tracking-wide mb-2 relative">Get Started</p>
@@ -243,7 +243,7 @@ function AdmissionForm() {
                     <FormSectionTitle index={1} title="Student Information" />
                     <div className="grid sm:grid-cols-2 gap-5">
                         <div className="sm:col-span-2">
-                            <FormField label="Student Full Name" Icon={FaUser} name="studentName" placeholder="Enter student's full name" value={form.studentName} onChange={handleChange} required />
+                            <FormField label="Student Full Name" Icon={FaUser} name="studentName" placeholder="Enter Student's name" value={form.studentName} onChange={handleChange} required />
                         </div>
                         <FormField label="Date of Birth" Icon={FaCalendarAlt} type="date" name="dob" value={form.dob} onChange={handleChange} required />
                         <FormField
@@ -263,8 +263,8 @@ function AdmissionForm() {
                 <div>
                     <FormSectionTitle index={2} title="Parent Information" />
                     <div className="grid sm:grid-cols-2 gap-5">
-                        <FormField label="Father's Name" Icon={FaUserTie} name="fatherName" placeholder="Father's full name" value={form.fatherName} onChange={handleChange} required />
-                        <FormField label="Mother's Name" Icon={FaUserFriends} name="motherName" placeholder="Mother's full name" value={form.motherName} onChange={handleChange} />
+                        <FormField label="Father's Name" Icon={FaUserTie} name="fatherName" placeholder="Father's Name" value={form.fatherName} onChange={handleChange} required />
+                        <FormField label="Mother's Name" Icon={FaUserFriends} name="motherName" placeholder="Mother's Name" value={form.motherName} onChange={handleChange} />
                     </div>
                 </div>
 
@@ -321,13 +321,13 @@ function AdmissionSidePanel() {
             <div className="relative rounded-xl overflow-hidden h-[260px] sm:h-[300px]">
                 <img
                     src={SideImg_1}
-                    alt="Students at Unipix University"
+                    alt="srls_school"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
                     <p className="font-logo font-semibold text-[19px] mb-1">Join 1000+ students</p>
-                    <p className="text-white/75 text-[13px]">Across undergraduate, graduate, and lifelong - learning programs.</p>
+                    <p className="text-white/75 text-[13px]">Empowering young learners through quality education, values, and holistic development.</p>
                 </div>
             </div>
 
@@ -344,14 +344,14 @@ function AdmissionSidePanel() {
                     <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center shrink-0">
                         <FaEnvelope size={13} />
                     </span>
-                    <p className="text-[14px]">Srlsinternationalpublicschool@gmail.com</p>
+                    <p className="text-[14px] sm:text-sm md:text-base break-all">Srlsinternationalpublicschool@gmail.com</p>
                 </div>
             </div>
 
             <div className="relative rounded-xl overflow-hidden h-[260px] sm:h-[300px]">
                 <img
                     src={SideImg_3}
-                    alt="Students at Unipix University"
+                    alt="srls_school"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
@@ -364,7 +364,7 @@ function AdmissionSidePanel() {
             <div className="relative rounded-xl overflow-hidden h-[260px] sm:h-[300px]">
                 <img
                     src={SideImg_2}
-                    alt="Students at Unipix University"
+                    alt="srls_school"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />

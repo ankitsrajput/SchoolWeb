@@ -213,7 +213,7 @@ function TestimonialCarousel() {
 
 export default function Testimonials() {
   return (
-    <section className="relative bg-[#F7F4EC] px-5 sm:px-8 py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-[#F7F4EC] px-5 sm:px-8 py-20 md:py-18 overflow-hidden">
       <div className="absolute top-10 -left-24 w-72 h-72 rounded-full bg-[#890C25]/5 blur-3xl" aria-hidden="true" />
       <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#890C25]/5 blur-3xl" aria-hidden="true" />
 
