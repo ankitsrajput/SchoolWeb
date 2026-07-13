@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { sendContactForm } from "../api/contactApi";
 import breadCrumbImg from "../assets/sliderImgs/breadCrumb.jpeg"
 import {
     FaChevronRight,
@@ -164,11 +165,35 @@ function ContactForm() {
 
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSent(true);
-        setTimeout(() => setSent(false), 4000);
-        setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+
+        try {
+            const data = await sendContactForm(form);
+
+            if (data.success) {
+                setSent(true);
+
+                setTimeout(() => {
+                    setSent(false);
+                }, 4000);
+
+                setForm({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    subject: "",
+                    message: "",
+                });
+            }
+        } catch (error) {
+            console.error(error);
+
+            alert(
+                error.response?.data?.message ||
+                "Unable to send your enquiry. Please try again."
+            );
+        }
     };
 
     return (

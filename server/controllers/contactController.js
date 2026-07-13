@@ -1,6 +1,6 @@
 import transporter from "../config/mailer.js";
-import contactTemplate from "../templates/contactTemplate.js";
-import autoReplyTemplate from "../templates/autoReplyTemplate.js";
+import contactTemplate from "../template/contactTemplate.js";
+import autoReplyTemplate from "../template/autoReplyTemplate.js";
 
 export const sendContactMail = async (req, res) => {
     try {

@@ -5,6 +5,7 @@ import SideImg_2 from "../assets/imgs/campus_life/17.jpeg"
 import SideImg_3 from "../assets/imgs/cultural/9.jpeg"
 import SideImg_4 from "../assets/imgs/event_activity/3.jpeg"
 import { NavLink } from "react-router-dom";
+import { sendAdmissionForm } from "../api/admissionApi";
 import {
     FaChevronRight,
     FaUser,
@@ -215,17 +216,52 @@ const INITIAL_FORM = {
 function AdmissionForm() {
     const [form, setForm] = useState(INITIAL_FORM);
     const [sent, setSent] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setForm((f) => ({ ...f, [name]: type === "checkbox" ? checked : value }));
     };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSent(true);
-        setTimeout(() => setSent(false), 4000);
-        setForm(INITIAL_FORM);
+
+        setLoading(true);
+
+        try {
+            const data = await sendAdmissionForm({
+                studentName: form.studentName,
+                dob: form.dob,
+                gender: form.gender,
+                className: form.classFor,   // frontend -> backend
+                fatherName: form.fatherName,
+                motherName: form.motherName,
+                phone: form.mobile,         // frontend -> backend
+                email: form.email,
+                address: form.address,
+                message: form.message,
+            });
+
+            if (data.success) {
+                setSent(true);
+
+                setTimeout(() => {
+                    setSent(false);
+                }, 4000);
+
+                setForm(INITIAL_FORM);
+            }
+
+        } catch (error) {
+            console.error(error);
+
+            alert(
+                error.response?.data?.message ||
+                "Unable to submit admission enquiry. Please try again."
+            );
+
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -253,7 +289,8 @@ function AdmissionForm() {
                         <div className="sm:col-span-2">
                             <FormField
                                 label="Class Applying For" Icon={FaGraduationCap} select name="classFor" placeholder="Select class"
-                                options={["Class I", "Class VI", "Class IX", "Class XI"]} value={form.classFor} onChange={handleChange} required
+                                options={["Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI", "Class VII", "Class VIII", "Class IX", "Class X", "Class XI", "Class XII"]}
+                                value={form.classFor} onChange={handleChange} required
                             />
                         </div>
                     </div>
@@ -302,9 +339,10 @@ function AdmissionForm() {
 
                     <button
                         type="submit"
+                        disabled={loading}
                         className="sm:ml-auto inline-flex items-center justify-center gap-3 bg-[#890C25] text-white font-medium text-[14.5px] px-7 py-3.5 rounded-md hover:bg-[#6e0a1e] transition-colors duration-300 group w-full sm:w-fit shrink-0"
                     >
-                        {sent ? "Submitted ✓" : "Submit Admission"}
+                        {loading ? "Submitting..." : sent ? "Submitted ✓" : "Submit Admission"}
                         {!sent && <FaPaperPlane size={13} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />}
                     </button>
                 </div>
