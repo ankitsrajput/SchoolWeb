@@ -162,11 +162,14 @@ function FormField({ label, Icon, type = "text", textarea, placeholder, value, o
 function ContactForm() {
     const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
     const [sent, setSent] = useState(false);
+    const [loading, setLoading] = useState(false);
+
 
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
             const data = await sendContactForm(form);
@@ -193,6 +196,8 @@ function ContactForm() {
                 error.response?.data?.message ||
                 "Unable to send your enquiry. Please try again."
             );
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -219,9 +224,12 @@ function ContactForm() {
 
                 <button
                     type="submit"
+                    disabled={loading}
                     className="mt-2 inline-flex items-center justify-center gap-3 bg-[#890C25] text-white font-medium text-[14.5px] px-7 py-3.5 rounded-md hover:bg-[#6e0a1e] transition-colors duration-300 group w-full sm:w-fit"
                 >
-                    {sent ? "Message Sent ✓" : "Send Message"}
+                    {/* {loading ? "Submitting..." : sent ? sent ? "Message Sent ✓" : "Send Message"} */}
+                    {loading ? "Submitting..." : sent ? "Query Submitted ✓" : "Submit Query"}
+
                     {!sent && <FaPaperPlane size={13} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />}
                 </button>
             </form>
