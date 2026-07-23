@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import Routes from "./routes/admissionRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import admissionRoutes from "./routes/admissionRoutes.js";
 
@@ -11,12 +10,11 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://your-vercel-domain.vercel.app",
+        "https://school-web-sooty-chi.vercel.app",
     ],
     methods: ["GET", "POST"],
 }));
 app.use(express.json());
-app.use("/api", Routes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/admission", admissionRoutes);
 
